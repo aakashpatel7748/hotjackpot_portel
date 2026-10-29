@@ -9,8 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@next/swc-wasm-nodejs": "^16.4.3",
-    "@next/swc-win32-x64-msvc": "^16.4.3",
     "@tailwindcss/postcss": "^4.3.3",
     "next": "16.4.3",
     "postcss": "^8.5.32",
