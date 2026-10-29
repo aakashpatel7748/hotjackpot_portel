@@ -1,0 +1,64 @@
+# HotJackpot Reviews
+
+> Independent editorial reviews and payment rail benchmarks for Australian online pokies and Canadian online casinos.
+
+## About HotJackpot
+HotJackpot is an independent digital media platform publishing objective, factual comparisons of online casino operators accepting players from Australia and Canada. We benchmark operator-stated welcome bonus terms, wagering multipliers, PayID/Interac banking rails, and game catalogues.
+
+- **Primary URL**: https://hotjackpot.in
+- **Publisher**: HotJackpot Editorial Desk (https://hotjackpot.in)
+- **Target Regions**: Australia (AU), Canada (CA)
+- **Minimum Legal Age**: 18+ (AU), 19+ (CA, except 18+ AB/QC)
+- **Editorial Model**: Subjective editorial evaluations based on publicly stated operator terms. Free access supported by affiliate disclosures.
+
+## Key Coverage Areas
+- **Australia Online Pokies**: Editorial guide to offshore licensed casinos offering native AUD accounts and PayID banking via Australia's New Payments Platform (NPP). Detailed legal context under the Commonwealth Interactive Gambling Act 2001 (IGA) and free player assistance resources (BetStop, Gambling Help Online 1800 858 858).
+- **Canada Online Casinos**: Overview of international casinos supporting Interac e-Transfer banking and native CAD balances. Clear distinctions between Ontario's open commercial regime (iGaming Ontario / AGCO) and the rest of Canada.
+
+## Featured Operator Reviews
+- **Wild Fortune**
+  - Australia Review: https://hotjackpot.in/reviews/wild-fortune
+  - Canada Review: https://hotjackpot.in/canada/reviews/wild-fortune
+  - Stated Welcome: AU$2,000 / C$2,000 + 250 Free Spins
+  - Wagering: 40x bonus
+  - Payout Speed: PayID & Interac (operator states 1-2 hours upon verification)
+  - Game Catalogue: 2,800+ pokies/slots (Pragmatic Play, Relax Gaming, Nolimit City)
+  - License: Curacao (Offshore)
+
+- **Casino Rocket**
+  - Australia Review: https://hotjackpot.in/reviews/casino-rocket
+  - Canada Review: https://hotjackpot.in/canada/reviews/casino-rocket
+  - Stated Welcome: AU$1,000 / C$1,000 + 150 Free Spins
+  - Wagering: 45x bonus
+  - Payout Speed: PayID & Interac (operator states 1-3 hours upon verification)
+  - Game Catalogue: 2,500+ pokies/slots (Betsoft, BGaming, Pragmatic Play)
+  - License: Curacao (Offshore)
+
+- **Ritzo Casino**
+  - Australia Review: https://hotjackpot.in/reviews/ritzo
+  - Canada Review: https://hotjackpot.in/canada/reviews/ritzo
+  - Stated Welcome: AU$1,000 / C$1,000 + 100 Free Spins
+  - Wagering: 35x bonus (as stated)
+  - Payout Speed: PayID & Interac (operator states 2-6 hours upon verification)
+  - Game Catalogue: 2,200+ games (Single-deck Blackjack, French Roulette, Live Salon)
+  - License: Curacao (Offshore)
+
+## Editorial & Rating Methodology
+HotJackpot rates operators using an objective 5-pillar scoring framework:
+1. Stated Bonus Terms & Wagering Fairness (25%)
+2. Banking Rails & Payout Speeds (20%)
+3. Software Providers & Game Selection (20%)
+4. Licensing & International Legal Framework (25%)
+5. Responsible Gaming & Player Tools (10%)
+Full methodology: https://hotjackpot.in/how-we-rate
+
+## Core Navigation Links
+- Australia Guide: https://hotjackpot.in/australia
+- Canada Guide: https://hotjackpot.in/canada
+- How We Rate: https://hotjackpot.in/how-we-rate
+- About Us: https://hotjackpot.in/about
+- Contact Editorial Desk: https://hotjackpot.in/contact
+- Privacy Policy: https://hotjackpot.in/privacy
+- Terms of Service: https://hotjackpot.in/terms
+- XML Sitemap: https://hotjackpot.in/sitemap.xml
+
