@@ -32,6 +32,15 @@ export const metadata: Metadata = {
     description: "Independent iGaming editorial reviews and payment benchmarks.",
     images: ["/og-image.png"],
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

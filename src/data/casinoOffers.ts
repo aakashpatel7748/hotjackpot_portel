@@ -87,16 +87,16 @@ export const CASINO_OFFERS: CasinoOffer[] = [
     },
     bonus: {
       AU: {
-        headline: 'AU$2,000 STATED WELCOME PACKAGE + 250 FREE SPINS',
-        subline: '100% Match up to AU$1,000 + 100 FS on First Deposit as stated by operator',
+        headline: 'AU$2,000 WELCOME PACKAGE ACROSS FIRST 3 DEPOSITS + 250 FREE SPINS',
+        subline: '1st Deposit: 100% Match up to AU$1,000 + 100 FS (2nd & 3rd deposits complete full AU$2,000 package)',
         code: 'WILDVIP2026',
         freeSpins: 250,
         matchPercentage: '100%',
         minDeposit: 'AU$20',
       },
       CA: {
-        headline: 'C$2,000 STATED WELCOME PACKAGE + 250 FREE SPINS',
-        subline: '100% Match up to C$1,000 + 100 FS on First Deposit as stated by operator',
+        headline: 'C$2,000 WELCOME PACKAGE ACROSS FIRST 3 DEPOSITS + 250 FREE SPINS',
+        subline: '1st Deposit: 100% Match up to C$1,000 + 100 FS (2nd & 3rd deposits complete full C$2,000 package)',
         code: 'WILDVIP2026',
         freeSpins: 250,
         matchPercentage: '100%',
@@ -180,16 +180,16 @@ export const CASINO_OFFERS: CasinoOffer[] = [
     },
     bonus: {
       AU: {
-        headline: 'AU$1,000 STATED BONUS + 150 FREE SPINS',
-        subline: '100% Match up to AU$500 + 50 Free Spins on 1st Deposit as stated by operator',
+        headline: 'AU$1,000 WELCOME PACKAGE ACROSS FIRST 2 DEPOSITS + 150 FREE SPINS',
+        subline: '1st Deposit: 100% up to AU$500 + 50 FS (2nd deposit gives 50% up to AU$500 + 100 FS)',
         code: 'ROCKETLAUNCH',
         freeSpins: 150,
         matchPercentage: '100%',
         minDeposit: 'AU$20',
       },
       CA: {
-        headline: 'C$1,000 STATED BONUS + 150 FREE SPINS',
-        subline: '100% Match up to C$500 + 50 Free Spins on 1st Deposit as stated by operator',
+        headline: 'C$1,000 WELCOME PACKAGE ACROSS FIRST 2 DEPOSITS + 150 FREE SPINS',
+        subline: '1st Deposit: 100% up to C$500 + 50 FS (2nd deposit gives 50% up to C$500 + 100 FS)',
         code: 'ROCKETLAUNCH',
         freeSpins: 150,
         matchPercentage: '100%',
