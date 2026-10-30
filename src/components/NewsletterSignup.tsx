@@ -68,7 +68,7 @@ export function NewsletterSignup({ country }: NewsletterSignupProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!consented) {
-      setErrorMessage('Please confirm you are of legal gambling age (19+) and agree to receive updates.');
+      setErrorMessage(`Please confirm you are of legal gambling age (${country === 'AU' ? '18+' : '19+'}) and agree to receive updates.`);
       return;
     }
 

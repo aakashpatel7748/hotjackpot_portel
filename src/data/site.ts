@@ -1,7 +1,7 @@
 export const SITE_NAME = 'HotJackpot';
 export const SITE_URL = 'https://hotjackpot.in';
 export const CONTACT_EMAIL = 'contact@hotjackpot.in';
-export const POSTAL_ADDRESS = 'HotJackpot Editorial Desk, Level 2, Connaught Circus, New Delhi 110001, India';
+export const POSTAL_ADDRESS = 'New Delhi, India';
 export const LAST_CHECKED = 'Oct 2026';
 export const LAST_UPDATED = 'October 2026';
 

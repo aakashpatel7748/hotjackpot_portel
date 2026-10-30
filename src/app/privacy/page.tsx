@@ -75,7 +75,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-1 text-zinc-400">
             <li>Clear sender identification from HotJackpot.</li>
             <li>A working, instant one-click unsubscribe mechanism in the footer.</li>
-            <li>A genuine reply-to address ({CONTACT_EMAIL}) and postal correspondence address ({POSTAL_ADDRESS}).</li>
+            <li>A genuine reply-to address ({CONTACT_EMAIL}) and operating location ({POSTAL_ADDRESS}).</li>
           </ul>
         </section>
 

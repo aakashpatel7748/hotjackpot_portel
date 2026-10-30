@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     url: 'https://hotjackpot.in/australia',
     locale: 'en_AU',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Online Pokies Australia 2026: Editorial Guide & PayID Banking | HotJackpot',
+    description: 'PayID banking overview, AUD currency options, stated wagering, and AU$2,000 welcome bonuses.',
+    images: ['/og-image.png'],
+  },
   alternates: {
     canonical: 'https://hotjackpot.in/australia',
     languages: {

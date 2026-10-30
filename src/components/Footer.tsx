@@ -207,7 +207,7 @@ export function Footer({ country = 'CA' }: FooterProps) {
             Gambling is strictly restricted to individuals {country === 'AU' ? '18+' : '19+'} years of age.
           </p>
           <p>
-            © 2026 HotJackpot.in. All rights reserved. Editorial Inquiries: <a href={`mailto:${CONTACT_EMAIL}`} className="text-zinc-300 hover:text-amber-400 underline">{CONTACT_EMAIL}</a> • Postal Correspondence: {POSTAL_ADDRESS}. For informational and educational purposes only.
+            © 2026 HotJackpot.in. All rights reserved. Editorial Inquiries: <a href={`mailto:${CONTACT_EMAIL}`} className="text-zinc-300 hover:text-amber-400 underline">{CONTACT_EMAIL}</a> • Operated from {POSTAL_ADDRESS}. For informational and educational purposes only.
           </p>
         </div>
       </div>

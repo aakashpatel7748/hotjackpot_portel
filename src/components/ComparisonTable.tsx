@@ -131,7 +131,7 @@ export function ComparisonTable({ country }: ComparisonTableProps) {
         </table>
       </div>
       <p className="text-xs text-zinc-400 mt-2 text-right">
-        *Affiliate disclosure: We may earn a commission if you register via our links. Stated bonus terms set by operators. 19+ only.
+        *Affiliate disclosure: We may earn a commission if you register via our links. Stated bonus terms set by operators. {country === 'AU' ? '18+' : '19+'} only.
       </p>
     </section>
   );

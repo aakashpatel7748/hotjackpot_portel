@@ -56,7 +56,9 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
               className={`rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${
                 isTopRank
                   ? 'bg-gradient-to-b from-[#18102e] via-[#120a22] to-[#0a0614] border-2 border-amber-500/50 shadow-amber-500/10'
-                  : 'bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700'
+                  : offer.rank === 2
+                  ? 'bg-gradient-to-b from-[#121622] via-[#0d101a] to-[#090b12] border border-slate-700/70 hover:border-slate-600'
+                  : 'bg-gradient-to-b from-[#171115] via-[#110d10] to-[#0a080a] border border-zinc-800 hover:border-zinc-700'
               }`}
             >
               {/* Top Accent Ribbon */}
@@ -64,7 +66,9 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                 className={`px-3.5 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-xs font-black tracking-wider uppercase ${
                   isTopRank
                     ? 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-black'
-                    : 'bg-zinc-800 text-zinc-200'
+                    : offer.rank === 2
+                    ? 'bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700 text-slate-100'
+                    : 'bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800 text-zinc-200'
                 }`}
               >
                 <div className="flex items-center gap-2 min-w-0">
@@ -252,7 +256,7 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                           <ExternalLinkIcon className="w-4 h-4 text-black shrink-0" />
                         </a>
                         <span className="text-xs text-zinc-400 mt-1">
-                          *Affiliate link • 19+ only • T&Cs apply
+                          *Affiliate link • {country === 'AU' ? '18+' : '19+'} only • T&Cs apply
                         </span>
                       </>
                     </GeoGate>
