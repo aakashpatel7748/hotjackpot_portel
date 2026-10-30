@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Script from 'next/script';
 
 export function GoogleAnalytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-6S141BWREZ';
   const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
