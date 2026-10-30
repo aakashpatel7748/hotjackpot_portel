@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { CONTACT_EMAIL } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Contact Us | HotJackpot Editorial Desk',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[#0a0714] text-zinc-100 flex flex-col font-sans">
-      <Header country="AU" />
+      <Header country="CA" />
       <main className="flex-1 py-10 px-4 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto space-y-6 w-full text-xs sm:text-sm text-zinc-300 leading-relaxed">
         <nav className="text-xs text-zinc-400 flex items-center gap-2">
           <Link href="/" className="hover:text-amber-400">Home</Link>
@@ -33,8 +34,8 @@ export default function ContactPage() {
             <p className="text-zinc-400 mt-1">
               For direct editorial questions, review feedback, or operator corrections:
             </p>
-            <a href="mailto:john@hotjackpot.in" className="text-amber-400 font-semibold hover:underline mt-1 block">
-              john@hotjackpot.in
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-amber-400 font-semibold hover:underline mt-1 block">
+              {CONTACT_EMAIL}
             </a>
           </div>
 
@@ -43,8 +44,8 @@ export default function ContactPage() {
             <p className="text-zinc-400 mt-1">
               For newsletter unsubscriptions or privacy inquiries:
             </p>
-            <a href="mailto:support@hotjackpot.in" className="text-amber-400 font-semibold hover:underline mt-1 block">
-              support@hotjackpot.in
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-amber-400 font-semibold hover:underline mt-1 block">
+              {CONTACT_EMAIL}
             </a>
           </div>
         </div>
@@ -55,7 +56,7 @@ export default function ContactPage() {
           casino operator&apos;s support desk via their official website.
         </div>
       </main>
-      <Footer country="AU" />
+      <Footer country="CA" />
     </div>
   );
 }

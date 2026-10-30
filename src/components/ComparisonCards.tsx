@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { CASINO_OFFERS, Country } from '@/data/casinoOffers';
 import { StarIcon, CheckCircleIcon, ZapIcon, ExternalLinkIcon, ClockIcon } from './Icons';
+import { LAST_CHECKED } from '@/data/site';
+import { GeoGate } from './GeoGate';
 
 interface ComparisonCardsProps {
   country: Country;
@@ -33,7 +35,7 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
           </h2>
         </div>
         <p className="text-xs sm:text-sm text-zinc-400">
-          Evaluated by editorial team • {country === 'AU' ? '🇦🇺 Australia Guide' : '🇨🇦 Canada Guide'}
+          Evaluated by editorial team • {country === 'AU' ? '🇦🇺 Australia Guide' : '🇨🇦 Canada Guide'} • Checked {LAST_CHECKED}
         </p>
       </div>
 
@@ -57,7 +59,7 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                   : 'bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700'
               }`}
             >
-              {/* Top Accent Ribbon - Fully Responsive, NEVER Cut Off */}
+              {/* Top Accent Ribbon */}
               <div
                 className={`px-3.5 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-xs font-black tracking-wider uppercase ${
                   isTopRank
@@ -66,14 +68,14 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                 }`}
               >
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="px-2 py-0.5 rounded bg-black/25 text-current font-black shrink-0 text-[11px] sm:text-xs">
+                  <span className="px-2 py-0.5 rounded bg-black/25 text-current font-black shrink-0 text-xs">
                     RANK #{offer.rank}
                   </span>
-                  <span className="font-extrabold text-[11px] sm:text-xs tracking-wide">
+                  <span className="font-extrabold text-xs tracking-wide">
                     {badge}
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 shrink-0 text-[10px] sm:text-xs font-semibold">
+                <div className="flex items-center gap-1.5 shrink-0 text-xs font-semibold">
                   <ZapIcon className="w-3.5 h-3.5 shrink-0" />
                   <span>{offer.ratingLabel}</span>
                 </div>
@@ -96,60 +98,73 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                       <h3 className="text-base sm:text-xl lg:text-2xl font-black text-white leading-tight">
                         {offer.name}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-2 mt-1">
-                        <div className="flex">
+                      <div className="flex items-center gap-2 mt-1 flex-wrap">
+                        <div className="flex" aria-label={`Rating: ${offer.rating} out of 5 stars`}>
                           {[...Array(5)].map((_, i) => (
-                            <StarIcon key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 fill-amber-400" />
+                            <StarIcon key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                           ))}
                         </div>
-                        <span className="text-xs sm:text-sm font-bold text-white">{offer.rating} / 5</span>
-                        <span className="text-[10px] sm:text-xs text-amber-400 font-semibold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
-                          {offer.ratingLabel}
+                        <span className="text-xs sm:text-sm font-black text-white">{offer.rating} / 5</span>
+                        <span className="text-xs text-zinc-400">• Est. {offer.established}</span>
+                        <span className="text-xs text-zinc-400 font-medium px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700">
+                          {LAST_CHECKED}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-zinc-400">
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-800/80 border border-zinc-700/60 text-zinc-300 font-medium">
-                      Terms Checked Oct 2026
+                  <div className="flex items-center gap-2 self-start sm:self-center">
+                    <span className="px-2.5 py-1 rounded-lg bg-zinc-800/80 border border-zinc-700/80 text-xs font-semibold text-zinc-300">
+                      License: {offer.license}
                     </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-800/80 border border-zinc-700/60">
-                      License: <strong className="text-zinc-200">Curacao (Offshore)</strong>
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-zinc-800/80 border border-zinc-700/60">
-                      Games: <strong className="text-zinc-200">{offer.gamesCount}</strong>
+                    <span className="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-bold text-amber-300">
+                      {offer.gamesCount}
                     </span>
                   </div>
                 </div>
 
-                {/* Bonus Spotlight Box */}
-                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-black/50 border border-amber-500/30">
-                  <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-wider uppercase block mb-1">
-                    Operator Stated Welcome Package
-                  </span>
-                  <h4 className="text-sm sm:text-lg lg:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-200 to-amber-400 leading-snug break-words">
-                    {bonus.headline}
-                  </h4>
-                  <p className="text-[11px] sm:text-xs text-zinc-300 mt-1 font-medium">{bonus.subline}</p>
+                {/* Stated Welcome Package Banner */}
+                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-black/40 border border-amber-500/20 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                  <div>
+                    <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                      Stated Welcome Offer ({country === 'AU' ? 'AUD' : 'CAD'}):
+                    </span>
+                    <p className="text-sm sm:text-lg lg:text-xl font-black text-white mt-0.5 leading-snug">
+                      {bonus.headline}
+                    </p>
+                    <p className="text-xs sm:text-sm text-zinc-300 mt-0.5">{bonus.subline}</p>
+                  </div>
 
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold">
-                        CODE: {bonus.code}
-                      </span>
-                      <button
-                        onClick={() => handleCopyCode(offer.id, bonus.code)}
-                        className="px-2 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-300 border border-zinc-700 transition-colors cursor-pointer"
-                        title="Copy promo code"
-                      >
-                        {copiedId === offer.id ? '✓ Copied' : 'Copy'}
-                      </button>
-                    </div>
-                    <span className="text-[11px] sm:text-xs text-zinc-400">
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
+                    <GeoGate
+                      loading={
+                        <div className="h-8 w-32 bg-zinc-800 animate-pulse rounded-md"></div>
+                      }
+                      fallback={
+                        <div className="flex items-center gap-1.5">
+                          <span className="px-2.5 py-1 rounded-md bg-zinc-800/90 border border-zinc-700 text-zinc-400 text-xs font-medium">
+                            Bonus Code Restricted in Your Region
+                          </span>
+                        </div>
+                      }
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <span className="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold">
+                          {bonus.code}
+                        </span>
+                        <button
+                          onClick={() => handleCopyCode(offer.id, bonus.code)}
+                          aria-label={`Copy bonus code for ${offer.name}`}
+                          className="min-h-[36px] px-2.5 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-200 border border-zinc-700 transition-colors cursor-pointer"
+                        >
+                          {copiedId === offer.id ? '✓ Copied' : 'Copy'}
+                        </button>
+                      </div>
+                    </GeoGate>
+                    <span className="text-xs text-zinc-400">
                       Stated Wagering: <strong className="text-zinc-300">{offer.wagering}</strong>
                     </span>
-                    <span className="text-[11px] sm:text-xs text-zinc-400">
+                    <span className="text-xs text-zinc-400">
                       • Min Deposit: <strong className="text-zinc-300">{bonus.minDeposit}</strong>
                     </span>
                   </div>
@@ -159,7 +174,7 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Highlights */}
                   <div className="space-y-2">
-                    <p className="text-[11px] sm:text-xs font-bold text-zinc-400 uppercase tracking-wider">
+                    <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                       Stated Platform Features:
                     </p>
                     <div className="space-y-1.5">
@@ -174,14 +189,14 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
 
                   {/* Payment Badges */}
                   <div className="space-y-2">
-                    <p className="text-[11px] sm:text-xs font-bold text-zinc-400 uppercase tracking-wider">
+                    <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
                       Listed Payment Rails:
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {payments.map((pm, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded-lg bg-zinc-800 text-[11px] sm:text-xs font-medium text-zinc-300 border border-zinc-700/60"
+                          className="px-2.5 py-1 rounded-lg bg-zinc-800 text-xs font-medium text-zinc-300 border border-zinc-700/60"
                         >
                           {pm}
                         </span>
@@ -197,25 +212,45 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                 {/* Bottom CTA Row */}
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-zinc-800/80">
                   <Link
-                    href={country === 'CA' ? `/canada/reviews/${offer.slug}` : `/reviews/${offer.slug}`}
-                    className="text-xs sm:text-sm text-amber-400 hover:text-amber-300 font-bold underline underline-offset-4 decoration-amber-500/40 hover:decoration-amber-300 transition-colors order-2 sm:order-1 text-center"
+                    href={country === 'AU' ? `/reviews/${offer.slug}` : `/canada/reviews/${offer.slug}`}
+                    className="text-xs sm:text-sm text-amber-400 hover:text-amber-300 font-bold underline underline-offset-4 decoration-amber-500/40 hover:decoration-amber-300 transition-colors order-2 sm:order-1 text-center min-h-[44px] flex items-center"
                   >
                     Read Detailed Editorial Overview of {offer.name} →
                   </Link>
 
                   <div className="flex flex-col items-center sm:items-end w-full sm:w-auto order-1 sm:order-2">
-                    <a
-                      href={offer.goUrl}
-                      target="_blank"
-                      rel="sponsored nofollow noopener noreferrer"
-                      className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:from-amber-400 hover:to-yellow-300 text-black font-black text-xs sm:text-sm tracking-wider uppercase text-center shadow-xl shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
+                    <GeoGate
+                      loading={
+                        <div className="w-full sm:w-48 h-12 bg-zinc-800 animate-pulse rounded-xl"></div>
+                      }
+                      fallback={
+                        <>
+                          <div className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-zinc-800/90 border border-zinc-700/80 text-zinc-400 font-semibold text-xs text-center flex items-center justify-center gap-2 min-h-[44px]">
+                            <span className="w-2 h-2 rounded-full bg-amber-500/80 shrink-0"></span>
+                            <span>Not available in your region</span>
+                          </div>
+                          <span className="text-xs text-zinc-400 mt-1">
+                            *Real-money registrations restricted based on your location
+                          </span>
+                        </>
+                      }
                     >
-                      <span>VISIT {offer.name.toUpperCase()}</span>
-                      <ExternalLinkIcon className="w-4 h-4 text-black shrink-0" />
-                    </a>
-                    <span className="text-[10px] text-zinc-500 mt-1">
-                      *Affiliate link • 18+ only • T&Cs apply
-                    </span>
+                      <>
+                        <a
+                          href={offer.goUrl}
+                          target="_blank"
+                          rel="sponsored nofollow noopener noreferrer"
+                          aria-label={`Visit official operator site for ${offer.name}`}
+                          className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:from-amber-400 hover:to-yellow-300 text-black font-black text-xs sm:text-sm tracking-wider uppercase text-center shadow-xl shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
+                        >
+                          <span>VISIT {offer.name.toUpperCase()}</span>
+                          <ExternalLinkIcon className="w-4 h-4 text-black shrink-0" />
+                        </a>
+                        <span className="text-xs text-zinc-400 mt-1">
+                          *Affiliate link • 19+ only • T&Cs apply
+                        </span>
+                      </>
+                    </GeoGate>
                   </div>
                 </div>
               </div>

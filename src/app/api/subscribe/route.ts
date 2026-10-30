@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
 // In-memory rate limiter: max 5 requests per minute per IP
 const rateLimitMap = new Map<string, { count: number; firstRequest: number }>();
@@ -24,15 +22,6 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-// Prevent CSV / Spreadsheet Formula Injection (=, +, -, @, tab, cr)
-function sanitizeCsvValue(val: string): string {
-  let cleaned = val.replace(/"/g, '""').trim();
-  if (/^[=+\-@\t\r]/.test(cleaned)) {
-    cleaned = `'${cleaned}`;
-  }
-  return cleaned;
-}
-
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
 export async function POST(request: NextRequest) {
@@ -46,11 +35,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email, firstName, country, hp_website } = await request.json();
+    const { email, firstName, country, hp_website, turnstileToken } = await request.json();
 
     // Silent honeypot rejection: if bot filled hidden field, return success without saving
     if (hp_website && typeof hp_website === 'string' && hp_website.trim().length > 0) {
-      return NextResponse.json({ success: true, message: 'Subscribed successfully' });
+      return NextResponse.json({ success: true, message: "Thanks, you're subscribed." });
+    }
+
+    // Cloudflare Turnstile token validation if TURNSTILE_SECRET_KEY is configured
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+    if (turnstileSecret) {
+      if (!turnstileToken) {
+        return NextResponse.json({ message: 'Missing bot verification token.' }, { status: 400 });
+      }
+      try {
+        const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            secret: turnstileSecret,
+            response: turnstileToken,
+            remoteip: ip,
+          }),
+        });
+        const verifyData = await verifyRes.json();
+        if (!verifyData.success) {
+          return NextResponse.json({ message: 'Security verification failed. Please try again.' }, { status: 400 });
+        }
+      } catch (verifyErr) {
+        console.error('Turnstile verification error:', verifyErr);
+        return NextResponse.json({ message: 'Security verification temporarily unavailable.' }, { status: 500 });
+      }
     }
 
     if (!email || typeof email !== 'string' || email.length > 254 || !EMAIL_REGEX.test(email.trim())) {
@@ -59,7 +74,7 @@ export async function POST(request: NextRequest) {
 
     const cleanEmail = email.trim().toLowerCase();
     const rawName = typeof firstName === 'string' && firstName.trim() ? firstName.trim().slice(0, 60) : 'Friend';
-    // Defuse spreadsheet formula injection for Google Sheets payload without doubling quotes
+    // Defuse spreadsheet formula injection for Google Sheets payload
     const sheetSafeName = /^[=+\-@\t\r]/.test(rawName) ? `'${rawName}` : rawName;
     const selectedCountry = country === 'CA' ? 'CA' : 'AU';
     const nowIso = new Date().toISOString();
@@ -79,8 +94,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: 'Please provide a permanent personal email address.' }, { status: 400 });
     }
 
-    // 1. Live Google Sheets Webhook
     const googleSheetWebhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+    // Fail closed in production if webhook URL is not configured
+    if (process.env.NODE_ENV === 'production' && !googleSheetWebhook) {
+      return NextResponse.json(
+        { message: 'Subscription service temporarily unavailable' },
+        { status: 503 }
+      );
+    }
+
     if (googleSheetWebhook) {
       try {
         await fetch(googleSheetWebhook, {
@@ -99,30 +122,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 2. Local CSV backup with CSV formula injection sanitization
-    try {
-      const subscribersDir = path.resolve(process.cwd(), '..', 'mailer_app', 'Email_lists', 'SendXEmailList');
-      if (!fs.existsSync(subscribersDir)) {
-        fs.mkdirSync(subscribersDir, { recursive: true });
-      }
-
-      const subscribersFile = path.join(subscribersDir, 'PORTAL_NEWSLETTER_SUBSCRIBERS.csv');
-      const csvName = sanitizeCsvValue(rawName);
-      const row = `"${sanitizeCsvValue(cleanEmail)}","${csvName}","${selectedCountry}","${nowIso}"\n`;
-
-      if (!fs.existsSync(subscribersFile)) {
-        fs.writeFileSync(subscribersFile, 'Email,First Name,Country,Subscribed At\n', 'utf-8');
-      }
-
-      fs.appendFileSync(subscribersFile, row, 'utf-8');
-    } catch (fsErr) {
-      // Ignored in cloud serverless environments
-      console.log('Local disk write skipped in cloud environment:', fsErr);
-    }
-
     return NextResponse.json({
       success: true,
-      message: 'Subscribed successfully',
+      message: "Thanks, you're subscribed.",
     });
   } catch (error) {
     console.error('Newsletter subscription error:', error);

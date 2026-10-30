@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://hotjackpot.in/canada',
+    languages: {
+      'en-AU': 'https://hotjackpot.in/australia',
+      'en-CA': 'https://hotjackpot.in/canada',
+      'x-default': 'https://hotjackpot.in/canada',
+    },
   },
 };
 

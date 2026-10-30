@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://hotjackpot.in',
+    languages: {
+      'en-CA': 'https://hotjackpot.in',
+      'x-default': 'https://hotjackpot.in',
+    },
   },
 };
 

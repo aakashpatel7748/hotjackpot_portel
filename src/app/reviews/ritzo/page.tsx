@@ -17,9 +17,15 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://hotjackpot.in/reviews/ritzo',
+    languages: {
+      'en-AU': 'https://hotjackpot.in/reviews/ritzo',
+      'en-CA': 'https://hotjackpot.in/canada/reviews/ritzo',
+      'x-default': 'https://hotjackpot.in/canada/reviews/ritzo',
+    },
   },
 };
 
 export default function RitzoReviewPage() {
-  return <ReviewPageLayout offer={offer} country="CA" />;
+  return <ReviewPageLayout offer={offer} country="AU" />;
 }
+

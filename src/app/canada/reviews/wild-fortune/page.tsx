@@ -16,10 +16,14 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://hotjackpot.in/canada/reviews/wild-fortune',
+    languages: {
+      'en-AU': 'https://hotjackpot.in/reviews/wild-fortune',
+      'en-CA': 'https://hotjackpot.in/canada/reviews/wild-fortune',
+      'x-default': 'https://hotjackpot.in/canada/reviews/wild-fortune',
+    },
   },
 };
 
 export default function WildFortuneCanadaReviewPage() {
   return <ReviewPageLayout offer={offer} country="CA" />;
 }
-

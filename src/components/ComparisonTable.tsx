@@ -1,6 +1,6 @@
-import React from 'react';
 import { CASINO_OFFERS, Country } from '@/data/casinoOffers';
 import { StarIcon, ExternalLinkIcon } from './Icons';
+import { GeoGate } from './GeoGate';
 
 interface ComparisonTableProps {
   country: Country;
@@ -28,7 +28,7 @@ export function ComparisonTable({ country }: ComparisonTableProps) {
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/60 shadow-xl backdrop-blur-sm w-full">
+      <div className="overflow-x-auto rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/60 shadow-xl w-full">
         <table className="w-full text-left border-collapse min-w-[580px]">
           <thead>
             <tr className="border-b border-zinc-800 bg-zinc-900/90 text-xs font-black uppercase tracking-wider text-zinc-400">
@@ -61,7 +61,7 @@ export function ComparisonTable({ country }: ComparisonTableProps) {
                       />
                       <div>
                         <p className="font-extrabold text-white text-xs sm:text-sm">{offer.name}</p>
-                        <p className="text-xs text-zinc-500">{offer.gamesCount}</p>
+                        <p className="text-xs text-zinc-400">{offer.gamesCount}</p>
                       </div>
                     </div>
                   </td>
@@ -69,7 +69,18 @@ export function ComparisonTable({ country }: ComparisonTableProps) {
                   {/* Bonus */}
                   <td className="py-3 sm:py-4 px-3">
                     <p className="font-bold text-amber-300 text-xs leading-snug">{bonus.headline}</p>
-                    <p className="text-xs text-zinc-400 font-mono mt-0.5">Code: {bonus.code}</p>
+                    <GeoGate
+                      loading={<span className="text-xs text-zinc-400">Checking...</span>}
+                      fallback={
+                        <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                          Code: Restricted
+                        </p>
+                      }
+                    >
+                      <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                        Code: {bonus.code}
+                      </p>
+                    </GeoGate>
                   </td>
 
                   {/* Wagering */}
@@ -91,15 +102,27 @@ export function ComparisonTable({ country }: ComparisonTableProps) {
 
                   {/* CTA */}
                   <td className="py-3 sm:py-4 px-3 sm:px-5 text-right">
-                    <a
-                      href={offer.goUrl}
-                      target="_blank"
-                      rel="sponsored nofollow noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow-md hover:scale-105 transition-all"
+                    <GeoGate
+                      loading={
+                        <span className="inline-block w-16 h-8 bg-zinc-800 animate-pulse rounded-lg"></span>
+                      }
+                      fallback={
+                        <span className="inline-block px-2.5 py-1.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400 text-xs font-medium whitespace-nowrap">
+                          Restricted
+                        </span>
+                      }
                     >
-                      <span>Visit</span>
-                      <ExternalLinkIcon className="w-3 h-3 text-black" />
-                    </a>
+                      <a
+                        href={offer.goUrl}
+                        target="_blank"
+                        rel="sponsored nofollow noopener noreferrer"
+                        aria-label={`Visit official site of ${offer.name}`}
+                        className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-1 px-3.5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs uppercase tracking-wider shadow-md hover:scale-105 transition-all"
+                      >
+                        <span>Visit</span>
+                        <ExternalLinkIcon className="w-3 h-3 text-black" />
+                      </a>
+                    </GeoGate>
                   </td>
                 </tr>
               );
@@ -107,8 +130,8 @@ export function ComparisonTable({ country }: ComparisonTableProps) {
           </tbody>
         </table>
       </div>
-      <p className="text-[10px] text-zinc-500 mt-2 text-right">
-        *Affiliate disclosure: We may earn a commission if you register via our links. Stated bonus terms set by operators. 18+ only.
+      <p className="text-xs text-zinc-400 mt-2 text-right">
+        *Affiliate disclosure: We may earn a commission if you register via our links. Stated bonus terms set by operators. 19+ only.
       </p>
     </section>
   );

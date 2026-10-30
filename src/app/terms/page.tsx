@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { LAST_UPDATED } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Terms of Service & Legal Disclaimer | HotJackpot',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-[#0a0714] text-zinc-100 flex flex-col font-sans">
-      <Header country="AU" />
+      <Header country="CA" />
       <main className="flex-1 py-10 px-4 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto space-y-6 w-full text-xs sm:text-sm text-zinc-300 leading-relaxed">
         <nav className="text-xs text-zinc-400 flex items-center gap-2">
           <Link href="/" className="hover:text-amber-400">Home</Link>
@@ -23,7 +24,7 @@ export default function TermsPage() {
         </nav>
 
         <h1 className="text-2xl sm:text-4xl font-black text-white">Terms of Service & Disclaimer</h1>
-        <p className="text-zinc-400 text-xs">Last updated: October 2026</p>
+        <p className="text-zinc-400 text-xs">Last updated: {LAST_UPDATED}</p>
 
         <section className="space-y-2">
           <h2 className="text-base font-bold text-white">1. Informational Purpose Only</h2>
@@ -37,9 +38,8 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-white">2. Legal Jurisdiction and User Responsibility</h2>
           <p>
-            Online gambling laws vary by country, state, and province. In Australia, the Interactive Gambling Act 2001
-            (IGA) prohibits operators from offering interactive gambling services to Australian residents. In Canada,
-            Ontario maintains a separate commercial regime under iGaming Ontario (iGO). Users are solely responsible
+            Online gambling laws vary by country, state, and province. In Canada,
+            Ontario maintains a commercial regime under iGaming Ontario (iGO). Users are solely responsible
             for verifying the legality of accessing third-party gaming platforms within their respective jurisdiction.
           </p>
         </section>
@@ -55,12 +55,12 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-white">4. Age Restrictions</h2>
           <p>
-            You must be of legal gambling age in your jurisdiction (18+ in Australia; 19+ in most Canadian provinces;
+            You must be of legal gambling age in your jurisdiction (19+ in most Canadian provinces;
             18+ in Alberta and Quebec) to use this website.
           </p>
         </section>
       </main>
-      <Footer country="AU" />
+      <Footer country="CA" />
     </div>
   );
 }

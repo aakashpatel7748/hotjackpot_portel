@@ -20,9 +20,15 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://hotjackpot.in/australia',
+    languages: {
+      'en-AU': 'https://hotjackpot.in/australia',
+      'en-CA': 'https://hotjackpot.in/canada',
+      'x-default': 'https://hotjackpot.in/canada',
+    },
   },
 };
 
 export default function AustraliaPage() {
   return <PortalApp initialCountry="AU" />;
 }
+

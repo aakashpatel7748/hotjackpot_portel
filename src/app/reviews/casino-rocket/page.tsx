@@ -17,9 +17,15 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://hotjackpot.in/reviews/casino-rocket',
+    languages: {
+      'en-AU': 'https://hotjackpot.in/reviews/casino-rocket',
+      'en-CA': 'https://hotjackpot.in/canada/reviews/casino-rocket',
+      'x-default': 'https://hotjackpot.in/canada/reviews/casino-rocket',
+    },
   },
 };
 
 export default function CasinoRocketReviewPage() {
   return <ReviewPageLayout offer={offer} country="AU" />;
 }
+

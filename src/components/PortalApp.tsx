@@ -9,15 +9,17 @@ import { FAQSection } from '@/components/FAQSection';
 import { NewsletterSignup } from '@/components/NewsletterSignup';
 import { Footer } from '@/components/Footer';
 import { JsonLd } from '@/components/JsonLd';
+import { RegionUnavailableNotice } from '@/components/RegionUnavailableNotice';
 
 interface PortalAppProps {
   initialCountry?: Country;
 }
 
-export function PortalApp({ initialCountry = 'AU' }: PortalAppProps) {
+export function PortalApp({ initialCountry = 'CA' }: PortalAppProps) {
   return (
     <div className="min-h-screen bg-[#0a0714] text-zinc-100 flex flex-col font-sans selection:bg-amber-500 selection:text-black">
       <JsonLd country={initialCountry} />
+      <RegionUnavailableNotice />
       <Header country={initialCountry} />
       <main className="flex-1">
         <HeroSection country={initialCountry} />

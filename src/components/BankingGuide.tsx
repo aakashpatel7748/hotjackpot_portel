@@ -11,10 +11,10 @@ export function BankingGuide({ country }: BankingGuideProps) {
     return (
       <section id="banking-guide" className="py-8 sm:py-14 max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full">
         <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#120a22] via-[#1a0f30] to-[#120a22] border border-amber-500/30 p-5 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="hidden sm:block absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2.5">
               <ZapIcon className="w-3.5 h-3.5 text-amber-400" />
               <span>Australian Banking Rails</span>
             </div>
@@ -34,7 +34,7 @@ export function BankingGuide({ country }: BankingGuideProps) {
                     1
                   </div>
                   <h3 className="font-bold text-white text-xs sm:text-sm mb-1">Direct Bank Settlement</h3>
-                  <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-zinc-400 leading-relaxed">
                     Direct compatibility with Commonwealth Bank (CommBank), ANZ, NAB, Westpac, and Bendigo Bank.
                   </p>
                 </div>
@@ -46,7 +46,7 @@ export function BankingGuide({ country }: BankingGuideProps) {
                     2
                   </div>
                   <h3 className="font-bold text-white text-xs sm:text-sm mb-1">Zero Conversion Fees</h3>
-                  <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-zinc-400 leading-relaxed">
                     Transactions settle in pure Australian Dollars (AUD). Never pay 3-5% hidden foreign FX exchange markups.
                   </p>
                 </div>
@@ -58,7 +58,7 @@ export function BankingGuide({ country }: BankingGuideProps) {
                     3
                   </div>
                   <h3 className="font-bold text-white text-xs sm:text-sm mb-1">Total Privacy</h3>
-                  <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-zinc-400 leading-relaxed">
                     Use only your registered phone number or email as the PayID identifier. Never reveal credit card numbers.
                   </p>
                 </div>
@@ -73,10 +73,10 @@ export function BankingGuide({ country }: BankingGuideProps) {
   return (
     <section id="banking-guide" className="py-8 sm:py-14 max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full">
       <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#120a22] via-[#1a0f30] to-[#120a22] border border-amber-500/30 p-5 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="hidden sm:block absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2.5">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-xs font-bold uppercase tracking-wider mb-2.5">
             <ZapIcon className="w-3.5 h-3.5 text-red-400" />
             <span>Canadian Banking Rails</span>
           </div>
@@ -96,7 +96,7 @@ export function BankingGuide({ country }: BankingGuideProps) {
                   1
                 </div>
                 <h3 className="font-bold text-white text-xs sm:text-sm mb-1">Direct Canadian Bank Link</h3>
-                <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-zinc-400 leading-relaxed">
                   Direct connection with all Big 5 Canadian banks without requiring third-party payment gateways.
                 </p>
               </div>
@@ -108,7 +108,7 @@ export function BankingGuide({ country }: BankingGuideProps) {
                   2
                 </div>
                 <h3 className="font-bold text-white text-xs sm:text-sm mb-1">CAD Currency Handling</h3>
-                <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-zinc-400 leading-relaxed">
                   Deposits and withdrawals are processed directly in Canadian Dollars (CAD) to eliminate FX penalties.
                 </p>
               </div>
@@ -120,7 +120,7 @@ export function BankingGuide({ country }: BankingGuideProps) {
                   3
                 </div>
                 <h3 className="font-bold text-white text-xs sm:text-sm mb-1">High Transaction Reliability</h3>
-                <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-zinc-400 leading-relaxed">
                   Interac e-Transfer avoids common credit card transaction flags, offering seamless deposit approval.
                 </p>
               </div>

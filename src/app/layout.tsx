@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { CookieNotice } from "@/components/CookieNotice";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GeoProvider } from "@/components/GeoProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hotjackpot.in"),
   title: {
-    default: "HotJackpot Reviews | Online Pokies Australia & Canadian Online Casinos",
+    default: "HotJackpot Reviews | Canadian Online Casinos Guide 2026",
     template: "%s | HotJackpot",
   },
   description:
-    "Independent casino and pokies review platform for Australian and Canadian players. Overview of PayID and Interac e-Transfer banking, stated welcome bonuses, and game catalogues.",
+    "Independent online casino review platform for Canadian players. Overview of Interac e-Transfer banking, stated welcome bonuses, and slot catalogues.",
   openGraph: {
     type: "website",
     siteName: "HotJackpot Reviews",
-    locale: "en_AU",
+    locale: "en_CA",
     url: "https://hotjackpot.in",
     images: [
       {
@@ -22,14 +23,14 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "HotJackpot Reviews - Independent Pokies & Casino Guide",
+        alt: "HotJackpot Reviews - Independent Canadian Casino Guide",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HotJackpot Reviews",
-    description: "Independent iGaming editorial reviews and payment benchmarks.",
+    title: "HotJackpot Reviews | Canadian Online Casinos",
+    description: "Independent iGaming editorial reviews, Interac banking, and stated welcome bonuses.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -52,7 +53,9 @@ export default function RootLayout({
     <html lang="en" className="dark h-full antialiased">
       <body className="min-h-full flex flex-col bg-[#0a0714] text-zinc-100 font-sans">
         <GoogleAnalytics />
-        {children}
+        <GeoProvider>
+          {children}
+        </GeoProvider>
         <CookieNotice />
       </body>
     </html>

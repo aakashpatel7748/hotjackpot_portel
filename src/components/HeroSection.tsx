@@ -9,14 +9,14 @@ interface HeroSectionProps {
 export function HeroSection({ country }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden pt-6 sm:pt-10 pb-8 sm:pb-12 bg-gradient-to-b from-[#080511] via-[#120a22] to-[#080511] border-b border-zinc-800/80 w-full">
-      {/* Background Glow Accents */}
-      <div className="absolute top-0 left-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute top-10 right-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Background Glow Accents - hidden on mobile for performance */}
+      <div className="hidden sm:block absolute top-0 left-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="hidden sm:block absolute top-10 right-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       {/* Main Container - Generous Inward Padding for Desktop & Mobile Safety */}
       <div className="max-w-5xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10 text-center">
         {/* Editorial Pill */}
-        <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/90 border border-amber-500/30 text-amber-300 text-[10px] sm:text-xs font-semibold mb-3 sm:mb-4 shadow-lg max-w-full">
+        <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/90 border border-amber-500/30 text-amber-300 text-xs font-semibold mb-3 sm:mb-4 shadow-lg max-w-full">
           <ShieldCheckIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
           <span className="truncate">
             {country === 'AU'
@@ -58,10 +58,10 @@ export function HeroSection({ country }: HeroSectionProps) {
               <ZapIcon className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] sm:text-xs font-bold text-white truncate">
+              <p className="text-xs font-bold text-white truncate">
                 {country === 'AU' ? 'PayID Banking' : 'Interac Banking'}
               </p>
-              <p className="text-[8px] sm:text-[9px] text-zinc-400 truncate">Fast processing</p>
+              <p className="text-xs text-zinc-400 truncate">Fast processing</p>
             </div>
           </div>
 
@@ -70,8 +70,8 @@ export function HeroSection({ country }: HeroSectionProps) {
               <ShieldCheckIcon className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] sm:text-xs font-bold text-white truncate">Major Studios</p>
-              <p className="text-[8px] sm:text-[9px] text-zinc-400 truncate">Pragmatic, Relax</p>
+              <p className="text-xs font-bold text-white truncate">Major Studios</p>
+              <p className="text-xs text-zinc-400 truncate">Pragmatic, Relax</p>
             </div>
           </div>
 
@@ -80,8 +80,8 @@ export function HeroSection({ country }: HeroSectionProps) {
               <LockIcon className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] sm:text-xs font-bold text-white truncate">SSL Encrypted</p>
-              <p className="text-[8px] sm:text-[9px] text-zinc-400 truncate">256-Bit Security</p>
+              <p className="text-xs font-bold text-white truncate">SSL Encrypted</p>
+              <p className="text-xs text-zinc-400 truncate">256-Bit Security</p>
             </div>
           </div>
 
@@ -90,14 +90,14 @@ export function HeroSection({ country }: HeroSectionProps) {
               <TrophyIcon className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] sm:text-xs font-bold text-white truncate">Native Currency</p>
-              <p className="text-[8px] sm:text-[9px] text-zinc-400 truncate">{country === 'AU' ? 'AUD Options' : 'CAD Options'}</p>
+              <p className="text-xs font-bold text-white truncate">Native Currency</p>
+              <p className="text-xs text-zinc-400 truncate">{country === 'AU' ? 'AUD Options' : 'CAD Options'}</p>
             </div>
           </div>
         </div>
 
         {/* Clear Regulatory Notice */}
-        <div className="mt-4 p-2.5 sm:p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[10px] sm:text-[11px] text-zinc-400 max-w-2xl mx-auto text-left flex items-start gap-2">
+        <div className="mt-4 p-2.5 sm:p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-zinc-400 max-w-2xl mx-auto text-left flex items-start gap-2">
           <span className="text-amber-400 font-bold shrink-0">ℹ️</span>
           <span className="leading-relaxed">
             {country === 'AU'

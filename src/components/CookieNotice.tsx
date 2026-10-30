@@ -30,11 +30,11 @@ export function CookieNotice() {
   return (
     <aside
       aria-label="Cookie consent banner"
-      className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-4 bg-[#0d091a]/95 backdrop-blur-md border-t border-amber-500/30 shadow-2xl transition-all"
+      className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-4 bg-[#0d091a] border-t border-amber-500/30 shadow-2xl transition-all"
     >
       <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
-        <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed text-center sm:text-left">
-          We use functional cookies to remember your regional preferences (AU / CA) and anonymous traffic metrics.
+        <p className="text-xs text-zinc-300 leading-relaxed text-center sm:text-left">
+          We use functional cookies to remember your regional preferences and anonymous traffic metrics.
           Read our{' '}
           <Link href="/privacy" className="text-amber-400 underline underline-offset-2 hover:text-amber-300">
             Privacy Policy
@@ -47,13 +47,13 @@ export function CookieNotice() {
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => handleAccept('essential')}
-            className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-semibold border border-zinc-700 transition-colors cursor-pointer"
+            className="min-h-[44px] px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold border border-zinc-700 transition-colors cursor-pointer"
           >
             Essential Only
           </button>
           <button
             onClick={() => handleAccept('all')}
-            className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black text-xs font-bold shadow-md shadow-amber-500/20 transition-all cursor-pointer"
+            className="min-h-[44px] px-5 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black text-xs font-bold shadow-md shadow-amber-500/20 transition-all cursor-pointer"
           >
             Accept All
           </button>

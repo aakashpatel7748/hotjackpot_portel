@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function HowWeRatePage() {
   return (
     <div className="min-h-screen bg-[#0a0714] text-zinc-100 flex flex-col font-sans">
-      <Header country="AU" />
+      <Header country="CA" />
       <main className="flex-1 py-10 px-4 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto space-y-8 w-full">
         {/* Breadcrumb */}
         <nav className="text-xs text-zinc-400 flex items-center gap-2">
@@ -129,7 +129,7 @@ export default function HowWeRatePage() {
           </p>
         </div>
       </main>
-      <Footer country="AU" />
+      <Footer country="CA" />
     </div>
   );
 }
