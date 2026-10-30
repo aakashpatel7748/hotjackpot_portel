@@ -26,8 +26,8 @@ export function GeoProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    // 1. Local Dev ONLY override: ?geo=ca / ?geo=restricted
-    if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
+    // 1. URL preview override: ?geo=ca / ?geo=au / ?geo=restricted
+    if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       const forcedGeo = urlParams.get('geo')?.toUpperCase();
       if (forcedGeo) {

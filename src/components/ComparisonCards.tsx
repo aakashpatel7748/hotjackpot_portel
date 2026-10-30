@@ -124,49 +124,54 @@ export function ComparisonCards({ country }: ComparisonCardsProps) {
                 </div>
 
                 {/* Stated Welcome Package Banner */}
-                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-black/40 border border-amber-500/20 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-purple-950/20 border border-amber-500/30 space-y-3">
                   <div>
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
                       Stated Welcome Offer ({country === 'AU' ? 'AUD' : 'CAD'}):
                     </span>
-                    <p className="text-sm sm:text-lg lg:text-xl font-black text-white mt-0.5 leading-snug">
+                    <p className="text-base sm:text-lg lg:text-xl font-black text-white mt-1 leading-snug">
                       {bonus.headline}
                     </p>
-                    <p className="text-xs sm:text-sm text-zinc-300 mt-0.5">{bonus.subline}</p>
+                    <p className="text-xs sm:text-sm text-zinc-300 mt-1">{bonus.subline}</p>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2 shrink-0">
+                  {/* Spec Strip: Code + Wagering + Min Deposit */}
+                  <div className="pt-3 border-t border-amber-500/20 flex flex-wrap items-center justify-between gap-2.5">
                     <GeoGate
                       loading={
                         <div className="h-8 w-32 bg-zinc-800 animate-pulse rounded-md"></div>
                       }
                       fallback={
                         <div className="flex items-center gap-1.5">
-                          <span className="px-2.5 py-1 rounded-md bg-zinc-800/90 border border-zinc-700 text-zinc-400 text-xs font-medium">
-                            Bonus Code Restricted in Your Region
+                          <span className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700/80 text-zinc-300 text-xs font-semibold flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                            <span>Code: Restricted in Your Region</span>
                           </span>
                         </div>
                       }
                     >
                       <div className="flex items-center gap-1.5">
-                        <span className="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold">
-                          {bonus.code}
+                        <span className="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold">
+                          CODE: {bonus.code}
                         </span>
                         <button
                           onClick={() => handleCopyCode(offer.id, bonus.code)}
                           aria-label={`Copy bonus code for ${offer.name}`}
-                          className="min-h-[36px] px-2.5 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-200 border border-zinc-700 transition-colors cursor-pointer"
+                          className="min-h-[36px] px-3 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-200 border border-zinc-700 transition-colors cursor-pointer"
                         >
                           {copiedId === offer.id ? '✓ Copied' : 'Copy'}
                         </button>
                       </div>
                     </GeoGate>
-                    <span className="text-xs text-zinc-400">
-                      Stated Wagering: <strong className="text-zinc-300">{offer.wagering}</strong>
-                    </span>
-                    <span className="text-xs text-zinc-400">
-                      • Min Deposit: <strong className="text-zinc-300">{bonus.minDeposit}</strong>
-                    </span>
+
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-zinc-400">
+                      <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800">
+                        Wagering: <strong className="text-zinc-200">{offer.wagering}</strong>
+                      </span>
+                      <span className="px-2.5 py-1 rounded-md bg-zinc-900/60 border border-zinc-800">
+                        Min Deposit: <strong className="text-zinc-200">{bonus.minDeposit}</strong>
+                      </span>
+                    </div>
                   </div>
                 </div>
 

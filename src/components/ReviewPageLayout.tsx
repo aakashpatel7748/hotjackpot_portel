@@ -144,7 +144,7 @@ export function ReviewPageLayout({ offer, country = 'CA' }: ReviewPageLayoutProp
           </div>
 
           {/* Quick Bonus Strip */}
-          <div className="mt-5 sm:mt-8 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-black/60 border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+          <div className="mt-5 sm:mt-8 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-purple-950/20 border border-amber-500/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
             <div className="text-center md:text-left">
               <p className="text-xs font-bold text-amber-400 uppercase tracking-wider">
                 Operator Stated Welcome Package ({country === 'AU' ? 'AUD' : 'CAD'})
